@@ -8,7 +8,8 @@ function getTeddies() {
   fetch("http://localhost:3000/api/teddies")
     .then((res) => {
       if (res.ok) {
-        console.log('could you read me' + (res.ok) +'   aga ? ya A ya Bismil')
+      
+        console.log('   ya A ya Bismil')
         return res.json();
       }
       else {
@@ -16,12 +17,10 @@ function getTeddies() {
       }
     })
     .then((teddies) => {
+
       console.log(teddies)
-     
-      // .catch((err) => {
-      //   console.error('Error', err)
-      //   // Une erreur est survenue
-      // });
+     }
+      
 
       // createTeddyCard = (teddy) => {
       // get teddied container
@@ -29,7 +28,7 @@ function getTeddies() {
       // add somehow teddy.name 
 
 
-    }
+    
 
     )
 }
