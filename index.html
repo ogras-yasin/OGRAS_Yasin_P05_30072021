@@ -45,19 +45,50 @@
             </div>
 
 
+            <template id="product">
+              <li class="list-none bg-oniPink rounded-md p-4 transition duration-200 transform hover:scale-102">
+                <a id="productLink" href="">
+                  <figure>
+                    <img id="productImage" class="rounded h-64 w-full object-cover" src="" alt="">
+                    <figcaption class="pt-4">
+                      <div class="flex items-center mb-2">
+                        <h2 id="productName" class="font-bold "></h2>
+                        <div class="flex-grow"></div>
+                        <div class="flex items-center mr-4">
+                       
+                        </div>
+                        <span id="productPrice" class="text-sm font-bold bg-white px-2 py-1 rounded"></span>
+                      </div>
+                      <p id="productDescription" class="text-black text-opacity-80 text-sm text-justify"></p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </li>
+            </template>
+
+            
     <section>
     <div class="container">    
         <div class="row  py-3 ">
             <div class="col-12 col-lg-4 my-1 my-md-5">
               <div class="card">
-                <img src="images/teddy_1.jpg" alt="certificate" class="card-img-top product-image">
+                <!-- <img src="images/teddy_1.jpg" alt="certificate" class="card-img-top product-image"> -->
+                <img id="productImage" class="rounded h-64 w-full object-cover" src="" alt="">
                 <div class="card-body card-size">
-                  <h5 class="card-title">bobby fisher</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.!</p>
-                  <a href="./teddy__1.html" class="btn btn-primary ">Voir produit</a>
+                  <!-- <h5 class="card-title">bobby fisher</h5> -->
+                  <h2 id="productName" class="font-bold "></h2>
+                  <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.!</p> -->
+                  <p id="productDescription" class=" card-text text-black text-opacity-80 text-sm text-justify">description</p>
+                  
+                  <!-- <a href="./teddy__1.html" class="btn btn-primary ">Voir produit</a> -->
+                  <a id="productLink" class="btn btn-primary" href="">Voir produit</a>
+                  <!-- bisey yoktu  -->
+                  <span id="productPrice" class="text-sm font-bold bg-white px-2 py-1 rounded">prix</span>
                 </div>
               </div>
             </div>
+
+
             <div class="col-12 col-lg-4 my-1 my-md-5 ">
               <div class="card">
                   <img src="images/teddy_2.jpg" alt="instructor" class="card-img-top product-image">
