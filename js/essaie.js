@@ -32,6 +32,17 @@ fetch('http://localhost:3000/api/teddies')
 
 
 
+// const myfunction =((arg1) => {
+//   return arg1
+// })
+
+// function myfunction (arg1) {
+//   return arg1
+// }
+
+
+
+
 
 
 
