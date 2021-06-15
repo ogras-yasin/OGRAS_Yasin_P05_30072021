@@ -46,32 +46,30 @@
 
             
     <section>
-      <div class="container">    
-        <div class="row  py-3 ">
-          <ul id="bear">
+      <div class="container-fluid">    
+        <div class="row" id="bear" >
+            <!-- <div id="bear"> -->
             <!--Intégration des articles js-->
-          </ul>
+            
+            <!-- </div> -->
         </div>
       </div>
     </section>
 
-            <div class="col-12 col-lg-4 my-1 my-md-5 ">
-              <div class="card">
-                  <img src="" alt=" " class="card-img-top product-image">
-                  <div class="card-body ">
-                  <h5 class="card-title">harry potter</h5>
-                  <p class="card-text"></p>
-                  <a href="#" class="btn btn-primary ">Voir produit</a>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="col-12 col-lg-4 my-1 my-md-5">
+
+
+
+
+<div class="row">
+            
+            <div class="col-12 col-lg-4 my-1 my-md-5">
               <div class="card">
                 <img src="images/teddy_3.jpg" alt="job search" class="card-img-top product-image">
                 <div class="card-body">
                   <h5 class="card-title">Magnus carlsen</h5>
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.!</p>
                   <a href="#" class="btn btn-primary ">Voir produit</a>
+                  <span id="productPrice" class="text-sm font-bold bg-white px-2 py-1 rounded">${(Teddie.price / 100 ).toFixed(2).replace(".", ",")} €</span>
                 </div>
               </div>
             </div>
@@ -86,6 +84,19 @@
                 </div>
               </div>
             </div>
+
+            <div class="col-12 col-lg-4 my-1 my-md-5">
+              <div class="card">
+                <img src="images/teddy_3.jpg" alt="job search" class="card-img-top product-image">
+                <div class="card-body">
+                  <h5 class="card-title">Magnus carlsen</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.!</p>
+                  <a href="#" class="btn btn-primary ">Voir produit</a>
+                  <span id="productPrice" class="text-sm font-bold bg-white px-2 py-1 rounded">${(Teddie.price / 100 ).toFixed(2).replace(".", ",")} €</span>
+                </div>
+              </div>
+            </div>
+
             <div class="col-12 col-lg-4 my-1 my-md-5">
                 <div class="card ">
                   <img src="images/teddy_5.jpg" alt="certificate" class="card-img-top product-image">
@@ -98,7 +109,9 @@
             </div>
         </div>
     </div>
-    </section> -->
+
+  </div> 
+    </section> 
 
     
 
