@@ -1,16 +1,19 @@
-// ajouter main function ========================================+++++++
-/* Récupération de l'id du produit sélectionné dans la page précédente */
-// const getProductId = window.location.search.substr(1);
-const getProductId = new URL(window.location.href).searchParams.get('_id');
-console.log(getProductId);
+// **** au chargement de la page l'ourson est lancee automatiquement *******
+main();
+function main() {
+	getTeddies();
+}
 
-/* Récupération du produit avec l'id associé depuis le serveur */
+function getTeddies() {
+	/* Récupération du produit avec l'id associé depuis le serveur */
+	const getProductId = new URL(window.location.href).searchParams.get('_id');
+	console.log(getProductId);
 
-fetch(`http://localhost:3000/api/teddies/${getProductId}`).then((response) => response.json()).then((response) => {
-	let teddiesCardHTML = '';
+	fetch(`http://localhost:3000/api/teddies/${getProductId}`).then((response) => response.json()).then((response) => {
+		let teddiesCardHTML = '';
 
-	// Affichage du produit / personalisation
-	teddiesCardHTML += `<div class="container">
+		// Affichage du produit / personalisation
+		teddiesCardHTML += `<div class="container">
         <div class="card mb-3" style="max-width: 2040px;">
             <div class="row g-0">
               <div class="col-md-4">
@@ -34,41 +37,35 @@ fetch(`http://localhost:3000/api/teddies/${getProductId}`).then((response) => re
         </div>
     </div> `;
 
-	document.getElementById('item__Product').innerHTML = teddiesCardHTML;
+		document.getElementById('item__Product').innerHTML = teddiesCardHTML;
 
-	//Création d'une function foreach pour afficher mes choix de couleurs
-	let choice = document.querySelector('.color__choice');
-	response.colors.forEach(function(colors) {
-		let opt = document.createElement('option');
-		opt.value = colors;
-		opt.textContent = colors;
-		// on integre l'enfant au parent
-		choice.appendChild(opt);
-	});
+		//Création d'une function pour afficher mes choix de couleurs
+		let choice = document.querySelector('.color__choice');
+
+		response.colors.forEach(function(colors) {
+			let opt = document.createElement('option');
+			opt.value = colors;
+			opt.textContent = colors;
+			// on integre l'enfant au parent
+			choice.appendChild(opt);
+		});
 
 		addItemCart(response);
-
-});
-
+	});
+}
 // d'enregistrer les informations lors du clique du client su btn ajouter panier
 // enregistrer l'information localstorgae
 // reutilisler l'information( le nombre d'ourson que le client a choisi)
 // creer objet
-function addItemCart(item){
+function addItemCart(item) {
 	let unTableau = [
 		{
 			quantity: 0,
 			teddyId: getProductId,
 			nom: item.name,
-      prix : (item.price / 100).toFixed(2).replace('.', ','),
-      image : item.imageUrl,
-      couleur : item.colors
-    //   "colors": ["Tan", "Chocolate", "Black", "White"],
-    // "_id": "5be9c8541c9d440000665243",
-    // "name": "Norbert",
-    // "price": 2900,
-    // "imageUrl": "teddy_1.jpg",
-    
+			prix: (item.price / 100).toFixed(2).replace('.', ','),
+			image: item.imageUrl,
+			couleur: item.colors /* a faire: executer la couleur choisi par la balise select*/
 		}
 	];
 
