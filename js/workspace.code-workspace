@@ -8,6 +8,7 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "P05"
+		"liveServer.settings.multiRootWorkspaceName": "P05",
+		"liveServer.settings.port": 5501
 	}
 }

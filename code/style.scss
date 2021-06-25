@@ -34,6 +34,55 @@ img{
   color: rgb(25, 16, 151);
 }
 
+.response{
+  visibility: hidden;
+  // opacity: 0;
+  transition: 0.6s;
+  transform: translate(-200px);
+}
+
+// on cree une classe a injecter
+.show{
+  visibility: visible;
+  // opacity: 1;
+  transform: translate(0);
+}
+.mousemove{
+  height: 50px;
+  width: 50px;
+  border: 2px solid green;
+  position: absolute;
+  border-radius: 50px;
+  transform: translate(-50%,-50%);
+}
+
+.box {
+  background-color: teal;
+  // transform: scale(0.7);
+  transition: ease 0.2s;
+}
+header::after{
+  content: "";
+  height: 150px;
+  width: 150px;
+  background: radial-gradient(
+    circle closest-side,
+    rgba(164, 65, 189, 0.575),
+    transparent
+  );
+  position:absolute;
+  transform: translate(-50%, -50%);
+  transition: 0.25s;
+  z-index: 20;
+  opacity: 0;
+  left: var(--x);
+  top: var(--y);
+}
+
+:hover::after{
+  opacity: 1;
+}
+
 // .color__choice{
 //   margin: 5em;
 //   padding: 3em;

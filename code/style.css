@@ -37,6 +37,56 @@ img {
   color: #191097;
 }
 
+.response {
+  visibility: hidden;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  -webkit-transform: translate(-200px);
+          transform: translate(-200px);
+}
+
+.show {
+  visibility: visible;
+  -webkit-transform: translate(0);
+          transform: translate(0);
+}
+
+.mousemove {
+  height: 50px;
+  width: 50px;
+  border: 2px solid green;
+  position: absolute;
+  border-radius: 50px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.box {
+  background-color: teal;
+  -webkit-transition: ease 0.2s;
+  transition: ease 0.2s;
+}
+
+header::after {
+  content: "";
+  height: 150px;
+  width: 150px;
+  background: radial-gradient(circle closest-side, rgba(164, 65, 189, 0.575), transparent);
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  z-index: 20;
+  opacity: 0;
+  left: var(--x);
+  top: var(--y);
+}
+
+:hover::after {
+  opacity: 1;
+}
+
 @media all and (max-width: 992px) {
   .card-img-top {
     height: initial;

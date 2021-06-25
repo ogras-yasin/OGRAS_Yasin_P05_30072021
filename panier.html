@@ -9,8 +9,7 @@
  <link rel="stylesheet" href="scss/bootstrap.css" />
  <link rel="stylesheet" href="code/style.css" />
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-
-
+<script src="js/panier.js" defer></script>
     <title>Orinoco!</title>
 
   </head>
@@ -68,7 +67,7 @@
                         <div class="card shadow-lg">
                           
                           <div class="card-body card-size">
-                            <h5 class="card-title">34,99€</h5><br />
+                            <h5 class="card-title">prix</h5><br />
                             <!-- input au lieu de span ? -->
                             <strong>quantité :</strong> 1 <br /><br /><br />
 
@@ -131,7 +130,40 @@
 
             <!-- ******** fin formulaire ********** -->
 
-   
+            <div id="azz" class="box">Quelle est la capitale de la Suisse
+              <p>brr</p>
+              <button id="btn-1">Berne</button>
+              <button id="btn-2">Zurich</button>
+              <p class=response>La capitale de la Suisse est Berne</p>
+            </div>
+            <div class="mousemove"></div>
+            
+            <div id="keypress" >
+              <h3>J'appuie sur la touche : <span id="key"></span></h3>
+              
+            </div>
+            
+             <!-- test formulaire  -->
+             <div class="container" id="containerLanguage">
+              <form action="" class="box formBox" my-3>
+                <input type="text" placeholder="votre nom " id="nom">
+                <select name="" id="select">
+                  <option value="favoris"> selectioner votre language favoris</option>
+                  <option value="PHP">PHP </option>
+                  <option value="JavaScript">Javascript</option>
+                  <option value="Python"> Python</option>
+                </select>
+            
+                <input type="checkbox" id="cgv">
+                <label for="cgv">Acepter les CGV</label>
+            
+                <input type="submit" value="valider" md-3>
+                <div class="dataForm"></div>
+              </form>
+            </div>
+  
+
+
 <div class="footer-basic">
     <footer>
         <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
