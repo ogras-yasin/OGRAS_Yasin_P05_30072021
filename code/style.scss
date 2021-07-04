@@ -1,8 +1,21 @@
 // hadibenpm run/
 @import "variables";
-// h1, p{
-//     font-size: 3em;   
-// }
+
+#emptyBasket{
+  visibility: hidden;
+}
+
+td {
+  border:black 2px solid;
+  padding: 1em;}
+table {
+border-collapse: collapse;
+caption-side: top;
+width: 100%;
+
+}
+
+
  p{
   font-size: 1em;   
 }

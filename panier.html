@@ -9,7 +9,7 @@
  <link rel="stylesheet" href="scss/bootstrap.css" />
  <link rel="stylesheet" href="code/style.css" />
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-<script src="js/panier.js" defer></script>
+
     <title>Orinoco!</title>
 
   </head>
@@ -18,40 +18,149 @@
 
 
     
-        <header>
-            <div class="bg-pink">
-                <div class="container">
-                    <nav class="navbar navbar-padding">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="./index.html">
-                                    <img src="images/logo.png" width="200" height="50" alt="Orinoco Logo" />
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                    <a  href="./panier.html">
-                                        <button class="btn btn-primary" type="submit">Panier</button>
-                                    </a>
-                                </button>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="container-fluid ">
-                <div class="row justify-content-center bg-light">
-                    <!-- <div class="col-sm-6"> -->
-<h2 class=" py-3 color-panier"> Panier </h2>
-<!-- </div> -->
-</div>
-</div>
-            </header>
+<header>
+  <div class="bg-pink">
+      <div class="container">
+          <nav class="navbar navbar-padding">
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <a class="nav-link" href="./index.html">
+                        <img src="images/logo.png" width="200" height="50" alt="Orinoco Logo" />
+                      </a>
+                  </li>
+              </ul>
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a href="./panier.html">
+                      <button class="btn btn-primary" type="submit">Panier</button>
+                    </a>
+                  </li>
+              </ul>
+          </nav>
+      </div>
+  </div>
+  <div class="container-fluid ">
+      <div class="row justify-content-center bg-light">
+          <!-- <div class="col-sm-6"> -->
+      <h2 class=" py-3 color-panier"> Panier </h2>
+      <!-- </div> -->
+      </div>
+  </div>
+</header>
             
 
+            <!-- emptyBasket -->
+<section id="emptyBasket">
+  <div class="container my-3 py-1">
+      <div class="text-center my-5 shadow p-3 mb-5 bg-body rounded">
+          <h1 class="fs-1 font-weight-bold text-secondary my-5">Oups, votre panier semble vide, commencez vos achats
+          </h1>
+          <a role="button" class="btn btn-secondary text-uppercase my-3" href="../index.html">C'est par
+              ici</a>
+      </div>
+  </div>
+</section>
+<div class="container">
+  <table id="table">
+    <caption>titre du tableau</caption>
+    <thead>
+      <tr class="text-center ">
+          <th scope="col">Produit</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Option</th>
+          <th scope="col">Quantité</th>
+          <th scope="col">Prix</th>
+          <th scope="col" class="bg-light">Sous-total</th>
+      </tr>
+      
+      </thead>
+      <tbody id="productsBasket">
+        <!--Insertion panier.js-->
+        </tbody>
+    <tr>
+      <td>image</td>
+      <td>nom</td>
+      <td>vide</td>
+      <td>quantite</td>
+      <td>prix</td>
+      <td>sous total</td>
+    </tr>
+    <tr>
+      <td>Adrien</td>
+      <td>26 ans
+        <button type="button" class="rounded minus data-toggle="modal data-target="#exampleModal" 
+          data-index="${indexProduct}">
+          <span class="fas fa-minus-square text-danger" data-index="${indexProduct}"></span></button>
+      </td>
+      <td>Etats-Unis</td>
+    </tr>
+    <tr>
+      <td>kawthar</td>
+      <td colspan="2">24 ans</td>
+    </tr>
+    <tr>
+      <td>Adrien</td>
+      <td>26 ans</td>
+      <td rowspan="2">Etats-Unis</td>
+    </tr>
+    <tr>
+      <td>Adrien</td>
+      <td>26 ans</td>
+    </tr>
+    <tfoot>
+      <tr class="text-center fs-5 bg-light">
+          <th colspan="4" class="bg-white"></th>
+          <th colspan="1">Total : </th>
+          <th colspan="1" id="totalPrice"></th>
+      </tr>
+      </tfoot>
+  </table>
+  <button  type="button" class="btn btn-danger mx-5" id="cartClear" >vider le panier</button>
+</div>
 
-            <div class="container">    
+
+
+<!-- Table -->
+<section id="section" class="container my-5 align-middle ">
+  <div class=" d-none" id="basket">
+      <p class="text-center fs-4 text-light bg-secondary basket d-none">Contenu du panier</p>
+      <div class="table-responsive">
+          <table class="table table-hover my-auto mx-0">
+              <thead>
+              <tr class="text-center fs-5">
+                  <th scole="col">Produit</th>
+                  <th scole="col">Nom</th>
+                  <th scole="col">Option</th>
+                  <th scole="col">Quantité</th>
+                  <th scole="col">Prix</th>
+                  <th scole="col" class="bg-light">Sous-total</th>
+              </tr>
+              </thead>
+              <tbody id="productsBasket">
+              <!--Insertion panier.js-->
+              </tbody>
+              <tfoot>
+              <tr class="text-center fs-5 bg-light">
+                  <th colspan="4" class="bg-white"></th>
+                  <th colspan="1">Total : </th>
+                  <th colspan="1" id="totalPrice"></th>
+              </tr>
+              </tfoot>
+          </table>
+      </div>
+      <div class="text-center my-5 row" id="cacheButton">
+          <div class="col-12 col-sm-6 my-4">
+              <button type="submit" class="btn btn-secondary mx-5" id="validationBasket">Valider le panier</button>
+          </div>
+          <div class="col-12 col-sm-6 my-4">
+              <button type="button" class="btn btn-danger mx-5" data-bs-toggle="modal" data-bs-target="#modalClearBasket">Vider le panier</button>
+          </div>
+
+      </div>
+  </div>
+</section>
+
+            <!-- <div class="container">    
                 <div class="row  py-3 ">
                     <div class="col-12 col-lg-6 my-1 my-md-5 ">
                       <div class="card">
@@ -68,7 +177,7 @@
                           
                           <div class="card-body card-size">
                             <h5 class="card-title">prix</h5><br />
-                            <!-- input au lieu de span ? -->
+                             input au lieu de span ? 
                             <strong>quantité :</strong> 1 <br /><br /><br />
 
                             <p class="card-text">Prix total :</p>
@@ -78,11 +187,11 @@
                         </div>
                       </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- ******* formulaire ******** -->
             <div class="container">
-            <form>
+            <form id=formulaire>
                 <div class="form-row">
                   <div class="col-md-4 mb-3">
                     <label for="validationDefault01">Prénom</label>
@@ -124,11 +233,14 @@
                     </label>
                   </div>
                 </div>
-                <button class="btn btn-primary" type="submit">Submit form</button>
+                <button class="btn btn-primary mx-5"  type="submit" id="form__submit">Submit form</button>
             </form>
             </div>
 
-            <!-- ******** fin formulaire ********** -->
+
+
+
+            <!-- ******** fin formulaire ********** 
 
             <div id="azz" class="box">Quelle est la capitale de la Suisse
               <p>brr</p>
@@ -143,7 +255,7 @@
               
             </div>
             
-             <!-- test formulaire  -->
+             test formulaire 
              <div class="container" id="containerLanguage">
               <form action="" class="box formBox" my-3>
                 <input type="text" placeholder="votre nom " id="nom">
@@ -160,7 +272,7 @@
                 <input type="submit" value="valider" md-3>
                 <div class="dataForm"></div>
               </form>
-            </div>
+            </div> -->
   
 
 
@@ -190,6 +302,7 @@ integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfoo
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
 integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
 crossorigin="anonymous"></script> -->
+<script src="js/panier.js" ></script>
 </body>
 
 </html>
