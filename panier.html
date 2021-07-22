@@ -40,17 +40,13 @@
       </div>
   </div>
   <div class="container-fluid ">
-      <div class="row justify-content-center bg-light">
-          <!-- <div class="col-sm-6"> -->
+    <div class="row justify-content-center bg-light">
       <h2 class=" py-3 color-panier"> Panier </h2>
-      <!-- </div> -->
-      </div>
+    </div>
   </div>
 </header>
-            
-
             <!-- emptyBasket -->
-<section id="emptyBasket">
+<section id="emptyBasket" class="emptyBasket">
   <div class="container my-3 py-1">
       <div class="text-center my-5 shadow p-3 mb-5 bg-body rounded">
           <h1 class="fs-1 font-weight-bold text-secondary my-5">Oups, votre panier semble vide, commencez vos achats
@@ -62,54 +58,27 @@
 </section>
 <div class="container">
   <table id="table">
-    <caption>titre du tableau</caption>
     <thead>
       <tr class="text-center ">
           <th scope="col">Produit</th>
           <th scope="col">Nom</th>
-          <th scope="col">Option</th>
-          <th scope="col">Quantité</th>
+          <!-- <th scope="col">Option</th> -->
+          <!-- <th scope="col">Quantité</th> -->
           <th scope="col">Prix</th>
-          <th scope="col" class="bg-light">Sous-total</th>
+          <!-- <th scope="col" class="bg-light">Sous-total</th> -->
       </tr>
       
       </thead>
       <tbody id="productsBasket">
         <!--Insertion panier.js-->
         </tbody>
-    <tr>
-      <td>image</td>
-      <td>nom</td>
-      <td>vide</td>
-      <td>quantite</td>
-      <td>prix</td>
-      <td>sous total</td>
-    </tr>
-    <tr>
-      <td>Adrien</td>
-      <td>26 ans
-        <button type="button" class="rounded minus data-toggle="modal data-target="#exampleModal" 
-          data-index="${indexProduct}">
-          <span class="fas fa-minus-square text-danger" data-index="${indexProduct}"></span></button>
-      </td>
-      <td>Etats-Unis</td>
-    </tr>
-    <tr>
-      <td>kawthar</td>
-      <td colspan="2">24 ans</td>
-    </tr>
-    <tr>
-      <td>Adrien</td>
-      <td>26 ans</td>
-      <td rowspan="2">Etats-Unis</td>
-    </tr>
-    <tr>
-      <td>Adrien</td>
-      <td>26 ans</td>
-    </tr>
+
+ 
+  
     <tfoot>
       <tr class="text-center fs-5 bg-light">
-          <th colspan="4" class="bg-white"></th>
+          <!-- <th colspan="4" class="bg-white"></th> -->
+          <th colspan="1" class="bg-white"></th>
           <th colspan="1">Total : </th>
           <th colspan="1" id="totalPrice"></th>
       </tr>
@@ -130,10 +99,10 @@
               <tr class="text-center fs-5">
                   <th scole="col">Produit</th>
                   <th scole="col">Nom</th>
-                  <th scole="col">Option</th>
-                  <th scole="col">Quantité</th>
+                  <!-- <th scole="col">Option</th> -->
+                  <!-- <th scole="col">Quantité</th> -->
                   <th scole="col">Prix</th>
-                  <th scole="col" class="bg-light">Sous-total</th>
+                  <!-- <th scole="col" class="bg-light">Sous-total</th> -->
               </tr>
               </thead>
               <tbody id="productsBasket">
@@ -141,7 +110,8 @@
               </tbody>
               <tfoot>
               <tr class="text-center fs-5 bg-light">
-                  <th colspan="4" class="bg-white"></th>
+                  <!-- <th colspan="4" class="bg-white"></th> -->
+                  <th colspan="1" class="bg-white"></th>
                   <th colspan="1">Total : </th>
                   <th colspan="1" id="totalPrice"></th>
               </tr>
@@ -155,126 +125,67 @@
           <div class="col-12 col-sm-6 my-4">
               <button type="button" class="btn btn-danger mx-5" data-bs-toggle="modal" data-bs-target="#modalClearBasket">Vider le panier</button>
           </div>
-
       </div>
   </div>
 </section>
 
-            <!-- <div class="container">    
-                <div class="row  py-3 ">
-                    <div class="col-12 col-lg-6 my-1 my-md-5 ">
-                      <div class="card">
-                        <img src="images/teddy_1.jpg" alt="certificate" class="card-img-top">
-                        <div class="card-body card-size">
-                          <h5 class="card-title">bobby fisher</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.!</p>
-                          
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-lg-6 my-1 my-md-5 ">
-                        <div class="card shadow-lg">
-                          
-                          <div class="card-body card-size">
-                            <h5 class="card-title">prix</h5><br />
-                             input au lieu de span ? 
-                            <strong>quantité :</strong> 1 <br /><br /><br />
-
-                            <p class="card-text">Prix total :</p>
-                            <p> ... €</p>
-                            <a href="./teddy__1.html" class="btn btn-success px-md-3 py-3">Passer à l'achat</a>
-                          </div>
-                        </div>
-                      </div>
-                </div>
-            </div> -->
-
             <!-- ******* formulaire ******** -->
+          <div id="form-customer">
             <div class="container">
-            <form id=formulaire>
+              <form id=formulaire>
                 <div class="form-row">
-                  <div class="col-md-4 mb-3">
-                    <label for="validationDefault01">Prénom</label>
-                    <input type="text" class="form-control" id="validationDefault01"  required>
+                  <div class="col-md-4 mb-3  prenom-container">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" class="form-control" id="prenom"  required>
+                    <span></span>
                   </div>
-                  <div class="col-md-4 mb-3">
-                    <label for="validationDefault02">Nom</label>
-                    <input type="text" class="form-control" id="validationDefault02"  required>
+                  <div class="col-md-4 mb-3 nom-container">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom"  required>
+                    <span></span>
                   </div>
-                  <div class="col-md-4 mb-3">
-                    <label for="validationDefaultUsername">email</label>
+                  <div class="col-md-4 mb-3 email-container">
+                    <label for="email">email</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                        <p class="input-group-text" id="inputGroupPrepend2">@</p>
                       </div>
-                      <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
+                      <input type="text" class="form-control" id="email"  aria-describedby="inputGroupPrepend2" required>
                     </div>
+                    <span></span>
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="col-md-6 mb-3">
-                    <label for="validationDefault03">Adresse</label>
-                    <input type="text" class="form-control" id="validationDefault03" required>
+                  <div class="col-md-6 mb-3 adresse-container">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" class="form-control" id="adresse" required>
+                    <span></span>
                   </div>
-                  <div class="col-md-3 mb-3">
-                    <label for="validationDefault04">Code postal</label>
-                    <input type="text" class="form-control" id="validationDefault04"  required>
+                  <div class="col-md-3 mb-3 codePostal-container">
+                    <label for="codePostal">Code postal</label>
+                    <input type="text" class="form-control" id="codePostal"  required>
+                    <span></span>
                   </div>
-                  <div class="col-md-3 mb-3">
-                    <label for="validationDefault05">Ville</label>
-                    <input type="text" class="form-control" id="validationDefault05" required>
+                  <div class="col-md-3 mb-3 ville-container">
+                    <label for="ville">Ville</label>
+                    <input type="text" class="form-control" id="ville" required>
+                    <span></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
                     <label class="form-check-label" for="invalidCheck2">
-                      Agree to terms and conditions
+                      Accepte les conditions d'utilisation
                     </label>
                   </div>
                 </div>
-                <button class="btn btn-primary mx-5"  type="submit" id="form__submit">Submit form</button>
-            </form>
-            </div>
+           
+                    <button class="btn btn-primary mx-5"  type="submit" id="form__submit">Envoyer</button>
 
-
-
-
-            <!-- ******** fin formulaire ********** 
-
-            <div id="azz" class="box">Quelle est la capitale de la Suisse
-              <p>brr</p>
-              <button id="btn-1">Berne</button>
-              <button id="btn-2">Zurich</button>
-              <p class=response>La capitale de la Suisse est Berne</p>
-            </div>
-            <div class="mousemove"></div>
-            
-            <div id="keypress" >
-              <h3>J'appuie sur la touche : <span id="key"></span></h3>
-              
-            </div>
-            
-             test formulaire 
-             <div class="container" id="containerLanguage">
-              <form action="" class="box formBox" my-3>
-                <input type="text" placeholder="votre nom " id="nom">
-                <select name="" id="select">
-                  <option value="favoris"> selectioner votre language favoris</option>
-                  <option value="PHP">PHP </option>
-                  <option value="JavaScript">Javascript</option>
-                  <option value="Python"> Python</option>
-                </select>
-            
-                <input type="checkbox" id="cgv">
-                <label for="cgv">Acepter les CGV</label>
-            
-                <input type="submit" value="valider" md-3>
-                <div class="dataForm"></div>
               </form>
-            </div> -->
-  
-
+            </div>
+          </div>
 
 <div class="footer-basic">
     <footer>
@@ -290,18 +201,6 @@
     </footer>
 </div>
 
-
-
-<!-- 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
-integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
-integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
- crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
-integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
-crossorigin="anonymous"></script> -->
 <script src="js/panier.js" ></script>
 </body>
 

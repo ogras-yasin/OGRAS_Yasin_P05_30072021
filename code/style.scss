@@ -1,8 +1,40 @@
 // hadibenpm run/
 @import "variables";
 
-#emptyBasket{
-  visibility: hidden;
+.customer{
+  font-size: 1.3em;
+}
+.error input{
+  color: red;
+  border: 1px solid rgb(184, 17, 17);
+} 
+// span 
+.error span {
+  visibility: visible;
+  // display: none;
+  opacity: 1; 
+  color: red;
+}
+
+.add-minus-icon{
+  // content: "\002B";
+  // border-radius: 10px;
+  padding: 0.5rem;
+  // border: hotpink 1px solid;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+.minus-icon{
+  color: red;
+}
+.add-icon{ color: green;}
+.emptyBasket{
+  // visibility: hidden;
+  display: none;
+}
+.visibleBasket{
+  display: unset;
 }
 
 td {
@@ -74,27 +106,7 @@ img{
   // transform: scale(0.7);
   transition: ease 0.2s;
 }
-header::after{
-  content: "";
-  height: 150px;
-  width: 150px;
-  background: radial-gradient(
-    circle closest-side,
-    rgba(164, 65, 189, 0.575),
-    transparent
-  );
-  position:absolute;
-  transform: translate(-50%, -50%);
-  transition: 0.25s;
-  z-index: 20;
-  opacity: 0;
-  left: var(--x);
-  top: var(--y);
-}
 
-:hover::after{
-  opacity: 1;
-}
 
 // .color__choice{
 //   margin: 5em;

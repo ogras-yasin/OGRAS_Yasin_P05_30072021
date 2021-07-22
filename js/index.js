@@ -1,8 +1,6 @@
 // **** au chargement de la page les oursons sont lances automatiquement *******
-main()
-function main() {
-  getTeddies();
-}
+window.onload = getTeddies();
+
 //////////  Récupération des données ours en peluches avec l'API fetch.
 function getTeddies() {
 
@@ -28,10 +26,7 @@ function getTeddies() {
 
       // creation des cartes de teddies  , Créer les élément, clone (prototype)
       teddiesCardHTML += 
-      // ./produit?id=${response.id}
-      // <a href="./frontend/produit.html?_id=${produit._id}">
       // ?_id=
-   
           `   <div class="col-12 col-lg-4 my-1 my-md-5 ">
           <div class="card">
           <img src="${Teddie.imageUrl}" alt="ourson " class="card-img-top product-image">
@@ -44,7 +39,6 @@ function getTeddies() {
           </div>
           </div>
           </div>   `
-          // ./produit?id=${response.id}
     }
     // Ajouter mes element créer dans le HTML pour afficher mes produits
   document.getElementById('bear').innerHTML = teddiesCardHTML

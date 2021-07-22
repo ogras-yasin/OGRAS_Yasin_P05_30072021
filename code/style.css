@@ -2,8 +2,42 @@
   background-color: #c47bab;
 }
 
-#emptyBasket {
-  visibility: hidden;
+.customer {
+  font-size: 1.3em;
+}
+
+.error input {
+  color: red;
+  border: 1px solid #b81111;
+}
+
+.error span {
+  visibility: visible;
+  opacity: 1;
+  color: red;
+}
+
+.add-minus-icon {
+  padding: 0.5rem;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.minus-icon {
+  color: red;
+}
+
+.add-icon {
+  color: green;
+}
+
+.emptyBasket {
+  display: none;
+}
+
+.visibleBasket {
+  display: unset;
 }
 
 td {
@@ -80,26 +114,6 @@ img {
   background-color: teal;
   -webkit-transition: ease 0.2s;
   transition: ease 0.2s;
-}
-
-header::after {
-  content: "";
-  height: 150px;
-  width: 150px;
-  background: radial-gradient(circle closest-side, rgba(164, 65, 189, 0.575), transparent);
-  position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
-  z-index: 20;
-  opacity: 0;
-  left: var(--x);
-  top: var(--y);
-}
-
-:hover::after {
-  opacity: 1;
 }
 
 @media all and (max-width: 992px) {
