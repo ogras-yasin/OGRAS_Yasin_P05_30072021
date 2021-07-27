@@ -6,25 +6,24 @@ function getTeddies() {
 
   fetch("http://localhost:3000/api/teddies")
   .then((response) => response.json())
-  .then((teddies) => {
-      createTeddiesCard(teddies)
+  .then((response) => {
+      createTeddiesCard(response)
     })
     .catch((err) => {
       console.log('error', err)
     })
 
 
-  // Boucle pour récupére toutes les variables des produits + (Foreach)
+  // Boucle pour récupére toutes les variables des produits 
   function createTeddiesCard(teddies) {
 
     //Je créer ma variable que je vais ajouter à mes elements
     let teddiesCardHTML = ""
 
     for (let i = 0; i < teddies.length; i++) {
-      console.log(teddies[i].name);
       let Teddie = teddies[i]
 
-      // creation des cartes de teddies  , Créer les élément, clone (prototype)
+      // creation des cartes de teddies  , 
       teddiesCardHTML += 
       // ?_id=
           `   <div class="col-12 col-lg-4 my-1 my-md-5 ">

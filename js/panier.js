@@ -1,78 +1,57 @@
 const cart = JSON.parse(localStorage.getItem('cart'));
 const url = `http://localhost:3000/api/teddies/`;
 let totalBasket = 0;
-
-function displayinHTML(cart) {
-	for (let product of cart) {
-        totalBasket += product.price
-		const Product_Id = document.getElementById('productsBasket');
-		Product_Id.innerHTML += `<tr class="text-center">
-            <td class="w-25">
-            <img src="${product.image}" class="img-fluid img-thumbnail" alt="${product.name}">
-            </td>
-            <td class="w-25">
-                 ${product.name}
-            </td>
-            <td> 
-                <span>${product.price/100 +  ` €`}</span>
-            </td>
-        </tr>
-            `;
-	}
-    const totalPrice = document.getElementById('totalPrice');
-	totalPrice.innerHTML = totalBasket/100 +  ` €`;
-}
-window.onload = displayinHTML(cart);
-
-// ---------------- maniplulation de produit ---------------
-
-
-//vide le panier
- function buttonClearBASKET() {
-	document.getElementById('cartClear');
-	buttonClearBASKET.addEventListener('click', () => {
-		localStorage.clear();
-		location.reload();
-	});
-};
-
-// calcul du total
-// function displayTotalBasket() {
-// 	cart.forEach((teddy) => {
-// 		// console.log(teddy)
-// 		totalBasket = totalBasket + teddy.price * teddy.quantity;
-// 	});
-// 	return totalBasket;
-// }
-
-//affiche le totalBasket
-// function totalPrice() {
-// 	const totalPrice = document.getElementById('totalPrice');
-// 	totalPrice.innerHTML = convertPrice(displayTotalBasket());
-// }
-//affiche le prix total
-// totalPrice();
-
-// convertir le prix
-// function convertPrice(productPrice) {
-// 	let price = `${productPrice}`;
-// 	price = Intl.NumberFormat('fr-FR', {
-// 		style: 'currency',
-// 		currency: 'EUR',
-// 		minimumFractionDigits: 2
-// 	}).format(price / 100);
-// 	return price;
-// }
-
-// rajouter une condition une fois cette page terminer : cache la visibilite si aucun cart present
 const emptyBasket = document.getElementById('emptyBasket');
-// console.log(emptyBasket)
+const table = document.getElementById("table")
+const form = document.querySelector("form")
+const cartClear = document.getElementById("cartClear")
 
-if (cart == null) {
-	const emptyBasket = document.getElementById('emptyBasket');
-	emptyBasket.classList.add('visibleBasket');
-	console.log(emptyBasket);
+console.log(form)
+
+
+if (cart != null){
+	function displayinHTML(cart) {
+		
+		for (let product of cart) {
+			
+			totalBasket += product.price // prixtotal
+			const Product_Id = document.getElementById('productsBasket');
+			Product_Id.innerHTML += `<tr class="text-center">
+				<td class="w-25"> 
+				<img src="${product.image}" class="img-fluid img-thumbnail" alt="${product.name}">
+				</td>
+				<td class="w-25">
+					${product.name}
+				</td>
+				<td> 
+					<span>${product.price/100 +  ` €`}</span>
+				</td>
+			</tr>
+				`;
+		}
+		const totalPrice = document.getElementById('totalPrice');
+		totalPrice.innerHTML = totalBasket/100 +  ` €`;
+	}
+	window.onload = displayinHTML(cart);
 }
+
+// cacher visibilite tableau et du champ
+if (cart == null) {
+	emptyBasket.classList.add('visibleBasket');
+	table.style.visibility = "hidden" 
+	form.style.visibility = "hidden" 
+	cartClear.style.visibility = "hidden" 
+}
+// ---------------- manipulation de produit ---------------
+
+
+// vide le panier  
+document.getElementById('cartClear').addEventListener('click', function cartClear(e) {
+	localStorage.clear();
+	location.reload();
+	console.log(e)
+});
+
 
 // ------------------- champ formulaire --------------
 
@@ -82,20 +61,20 @@ let prenom, nom, email, adresse, codePostal, ville;
 
 const prenomChecker = (value) => {
 	console.log(value);
-	if (!value.match(/^[a-zA-Z0-9_.-]*$/)) {
+	if (!value.match(/^[a-zA-Z_.-]*$/)) {
 		console.log('test');
 		errorDisplay('prenom', 'Veuillez fournir un prénom correcte');
 		prenom = null;
         return false
 	} else {
-
 		prenom = value;
-        return true
+		return true
+		
 	}
 };
 const nomChecker = (value) => {
 	console.log(value);
-	if (!value.match(/^[a-zA-Z0-9_.-]*$/)) {
+	if (!value.match(/^[a-zA-Z_.-]*$/)) {
 		console.log('test');
 		errorDisplay('nom', 'mettre un nom correcte');
 		nom = null;
@@ -114,21 +93,18 @@ const emailChecker = (value) => {
 		email = null;
         return false
 	} else {
-
 		email = value;
         return true
 	}
 };
 const adresseChecker = (value) => {
 	console.log(value);
-	if (!value.match(/^[a-zA-Z0-9_.- ]*$/)) {
+	if (!value.match(/^[a-zA-Z0-9_.-]*$/)) {
 		console.log('test');
-		// errorDisplay('adresse', 'Veuillez fournir une adresse correcte');
-		adresse = null;
+		errorDisplay('adresse', 'Veuillez fournir une adresse correcte');
         return false
 	} else {
-
-		adresse = value;
+		errorDisplay('adresse', 'Ve', true);
         return true
 	}
 };
@@ -140,7 +116,6 @@ const codePostalChecker = (value) => {
 		codePostal = null;
         return false
 	} else {
-
 		codePostal = value;
         return true
 	}
@@ -150,7 +125,7 @@ const villeChecker = (value) => {
 	if (!value.match(/^[a-zA-Z_.-]*$/)) {
 		console.log('test');
 		errorDisplay('ville', 'Ville invalide');
-		ville = null;
+		// ville = null;
         return false
 	} else {
 		
@@ -162,22 +137,20 @@ const villeChecker = (value) => {
 const errorDisplay = (tag, message, valid) => {
 	const container = document.querySelector('.' + tag + '-container');
 	const errorComment = document.querySelector('.' + tag + '-container > span');
-	// console.log(container)
-	// console.log(errorComment)
 	if (!valid) {
+		console.log("pas valide")
 		container.classList.add('error');
 		errorComment.textContent = message;
 	} else {
-		// valid = true
+		console.log("valide")
 		container.classList.remove('error');
-		errorComment.textContent = 'bravo';
-		console.log('test4');
+		errorComment.textContent = message
 	}
 };
 
 inputs.forEach(function(input) {
 	input.addEventListener('input', (e) => {
-		// console.log(e.target.value, e.target.id);
+
 		switch (e.target.id) {
 			case 'prenom':
 				prenomChecker(e.target.value);
@@ -190,14 +163,19 @@ inputs.forEach(function(input) {
 				emailChecker(e.target.value);
 				break;
 			case 'adresse':
-				const addrese = adresseChecker(e.target.value);
-                if (addrese = false) {errorDisplay('adresse', 'Veuillez fournir une adresse correcte')};
+				let addrese = adresseChecker(e.target.value);
+				if (addrese = false) {errorDisplay('adresse', 'Veuillez fournir une adresse correcte')
+				// il ne lit pas  donc retourne a la methode initial
+				} 
+
 				break;
 			case 'codePostal':
 				codePostalChecker(e.target.value);
 				break;
 			case 'ville':
 				villeChecker(e.target.value);
+				if (ville = false) { errorDisplay('ville', 'Ville invalide')}
+					else{errorDisplay('ville', ' ', true)}
 				break;
 			default:
 				'default value olmus';
@@ -206,7 +184,7 @@ inputs.forEach(function(input) {
 	});
 });
 
-const form = document.querySelector('form');
+
 
 form.addEventListener('submit', function testForm(e) {
 	// e.preventDefault()
