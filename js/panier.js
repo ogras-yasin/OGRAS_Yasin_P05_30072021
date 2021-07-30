@@ -56,80 +56,48 @@ document.getElementById('cartClear').addEventListener('click', function cartClea
 // ------------------- champ formulaire --------------
 
 inputs = document.querySelectorAll('input');
-// variable vide right ?
+// variable vide 
 let prenom, nom, email, adresse, codePostal, ville;
 
 const prenomChecker = (value) => {
-	console.log(value);
 	if (!value.match(/^[a-zA-Z_.-]*$/)) {
-		console.log('test');
-		errorDisplay('prenom', 'Veuillez fournir un prénom correcte');
-		prenom = null;
         return false
 	} else {
-		prenom = value;
 		return true
-		
 	}
 };
 const nomChecker = (value) => {
-	console.log(value);
 	if (!value.match(/^[a-zA-Z_.-]*$/)) {
-		console.log('test');
-		errorDisplay('nom', 'mettre un nom correcte');
-		nom = null;
         return false
 	} else {
-
-		nom = value;
         return true
 	}
 };
 const emailChecker = (value) => {
-	console.log(value);
 	if (!value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-		console.log('test');
-		errorDisplay('email', 'Veuillez fournir un email correcte');
-		email = null;
         return false
 	} else {
-		email = value;
         return true
 	}
 };
 const adresseChecker = (value) => {
-	console.log(value);
 	if (!value.match(/^[a-zA-Z0-9_.-]*$/)) {
-		console.log('test');
-		errorDisplay('adresse', 'Veuillez fournir une adresse correcte');
         return false
 	} else {
-		errorDisplay('adresse', 'Ve', true);
         return true
 	}
 };
 const codePostalChecker = (value) => {
-	console.log(value);
 	if (!value.match(/^[\d]*$/)) {
-		console.log('test');
-		errorDisplay('codePostal', 'code postal invalid');
-		codePostal = null;
         return false
 	} else {
-		codePostal = value;
         return true
 	}
 };
 const villeChecker = (value) => {
-	console.log(value);
 	if (!value.match(/^[a-zA-Z_.-]*$/)) {
-		console.log('test');
-		errorDisplay('ville', 'Ville invalide');
-		// ville = null;
         return false
 	} else {
-		
-		ville = value;
         return true
 	}
 };
@@ -153,32 +121,64 @@ inputs.forEach(function(input) {
 
 		switch (e.target.id) {
 			case 'prenom':
-				prenomChecker(e.target.value);
-				// errorDisplay('prenom', 'Veuillez fournir un prénom correcte');
+				// si prenomChecker invalide (non conforme au regex) alors message d'erreur + bloquer  l'envoie du formulaire 
+				const prenomVerify = prenomChecker(e.target.value);
+				if (prenomVerify == false) { errorDisplay('prenom', 'Veuillez fournir un prénom correcte');
+				prenom = null
+				} else { // recuperation de la valeur du champ 
+					prenom = e.target.value
+					errorDisplay('prenom', '', true)
+				}
 				break;
+				// la même méthodologie pour tous les autre champs
 			case 'nom':
-				nomChecker(e.target.value);
+				const nomVerify = nomChecker(e.target.value);
+				if (nomVerify == false){errorDisplay('nom', 'mettre un nom correcte')
+				nom = null;
+				} else {
+					nom = e.target.value
+					errorDisplay('nom', '', true)
+				}
 				break;
 			case 'email':
-				emailChecker(e.target.value);
+				const emailVerify = emailChecker(e.target.value);
+				if (emailVerify == false) {errorDisplay('email', 'Veuillez fournir un email correcte')
+				email = null
+				} else {
+					email = e.target.value
+					errorDisplay('email', '' , true)
+				}
 				break;
 			case 'adresse':
-				let addrese = adresseChecker(e.target.value);
-				if (addrese = false) {errorDisplay('adresse', 'Veuillez fournir une adresse correcte')
-				// il ne lit pas  donc retourne a la methode initial
-				} 
+				const addrese = adresseChecker(e.target.value);
+				if (addrese == false) {errorDisplay('adresse', 'Veuillez fournir une adresse correcte')
+				adresse = null
+				} else{  
+					adresse = e.target.value
+					errorDisplay('adresse', 'Ve', true);
+				}
 
 				break;
 			case 'codePostal':
-				codePostalChecker(e.target.value);
+				 const codePostalVerify = codePostalChecker(e.target.value);
+				 if (codePostalVerify == false ) {errorDisplay('codePostal', 'cest faux')
+				codePostal = null
+				} else {
+					codePostal = e.target.value
+					errorDisplay('codePostal', '', true);
+				}
 				break;
 			case 'ville':
-				villeChecker(e.target.value);
-				if (ville = false) { errorDisplay('ville', 'Ville invalide')}
-					else{errorDisplay('ville', ' ', true)}
+				const villeVerify = villeChecker(e.target.value);
+				if (villeVerify == false) { errorDisplay('ville', 'Ville invalide')
+				ville = null 
+				} else {
+					ville = e.target.value
+					errorDisplay('ville', ' s', true)
+				}
 				break;
 			default:
-				'default value olmus';
+				'default value ';
 				break;
 		}
 	});
@@ -187,11 +187,11 @@ inputs.forEach(function(input) {
 
 
 form.addEventListener('submit', function testForm(e) {
-	// e.preventDefault()
+	e.preventDefault()
 	console.log(e);
 	if (prenom !== null && nom !== null && ville !== null && adresse !== null && email !== null) {
+		// recuperation de l'id 
 		const products = cart.map((item) => item.id);
-		// console.log(product)
 		const contact = {
 			firstName: prenom,
 			lastName: nom,
@@ -205,19 +205,20 @@ form.addEventListener('submit', function testForm(e) {
 			body: JSON.stringify(data),
 			headers: { 'Content-Type': 'application/json' }
 		};
+		
 		fetch(url + 'order', option)
 			.then((response) => response.json())
 			.then((response) => {
 				localStorage.removeItem('cart');
 				localStorage.setItem('total', totalBasket);
+				console.log(response)
 				localStorage.setItem('orderId', response.orderId);
 				localStorage.setItem('contact', JSON.stringify(contact));
+				console.log(response)
 				window.location.replace('./order.html');
 			})
 			.catch((error) => console.error(error));
 
-		console.log(data);
-		// console.log()
 		alert('Votre formulaire a été enregistrer, nous vous remercions de votre achat');
 	} else {
 		alert('Vérifier votre formulaire');

@@ -1,10 +1,11 @@
 // **** au chargement de la page les oursons sont lances automatiquement *******
-window.onload = getTeddies();
 
+const URL = "http://localhost:3000/api/teddies"
+window.onload = getTeddies(URL);
 //////////  Récupération des données ours en peluches avec l'API fetch.
-function getTeddies() {
+function getTeddies(URL) {
 
-  fetch("http://localhost:3000/api/teddies")
+  fetch(URL)
   .then((response) => response.json())
   .then((response) => {
       createTeddiesCard(response)
