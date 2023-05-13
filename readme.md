@@ -37,8 +37,8 @@ Carte blanche est donnée au design de la maquette. Donc j'ai fait quelque chose
 2.	Réaliser un plan de tests
 
 ## Compétences évaluées
-•	Javascript Front-End
-•	Plan de test
+1.	Javascript Front-End
+2.	Plan de test
 
 ## Organisation des dossiers
 L'application backend est fournie par OpenClassrooms, à l'adresse : https://github.com/OpenClassrooms-Student-Center/JWDP5
