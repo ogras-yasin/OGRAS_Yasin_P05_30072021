@@ -46,6 +46,6 @@ L'ensemble de mon code frontend est regroupé dans le nouveau dossier "public".
 
 Le fichier de plan de test (Plan de tests.ods) est situé à la racine du repository.
 
-L'ordre spécifique de La mission ce trouve dans le dossier p5_06_Spécifications+fonctionnelles et mission de la racine
+L'ordre spécifique de La mission ce trouve dans le dossier raccine "p5_06_Spécifications+fonctionnelles"
 
 
