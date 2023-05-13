@@ -1,4 +1,7 @@
 ## OpenClassrooms P5 - Site e-commerce Orinoco
+
+------- 
+
 5ème projet de la formation de développeur web de OpenClassrooms
 Pour tester l'application
 1.	Cloner le repository
