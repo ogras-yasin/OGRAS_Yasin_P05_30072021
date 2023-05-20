@@ -6,10 +6,9 @@
 
 ## Pour tester l'application
 backend:
-1.	Cloner le repository
-2.	Lancer le serveur NodeJs :
--	Dans le terminal accéder au dossier du projet
--   executer: "npm install"
+
+4.	Dans le terminal accéder au dossier du projet
+-   	executer: "npm install"
 -	lancer: "npm start"
 3.	Accéder au site à l'adresse: http://localhost:3000/
 
