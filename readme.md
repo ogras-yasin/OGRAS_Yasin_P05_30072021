@@ -9,10 +9,10 @@
 ## Pour tester l'application
 backend:
 
-4.	Dans le terminal accéder au dossier du projet
+	Dans le terminal accéder au dossier du projet
 -   	executer: "npm install"
 -	    lancer: "npm start"
-3.	Accéder au site à l'adresse: http://localhost:3000/
+
 
 
 frontend
