@@ -9,7 +9,7 @@
 ## Pour tester l'application
 backend:
 
-	Dans le terminal accéder au dossier du projet
+ Dans le terminal accéder au dossier du projet
 -   	executer: "npm install"
 -	    lancer: "npm start"
 
